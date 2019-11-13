@@ -13,4 +13,16 @@ class PresetSettings implements ISettings {
         $this->$config = $config;
         $this->userId = $userId;
     }
+
+    public function getSection() {
+        return 'additional';
+    }
+
+    /**
+     * Place at the bottom of the settings tab.
+     * @return int
+     */
+    public function getPriority() {
+        return 100;
+    }
 }
