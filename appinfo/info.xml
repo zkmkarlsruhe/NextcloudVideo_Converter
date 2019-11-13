@@ -34,7 +34,7 @@
         <nextcloud min-version="13" max-version="18"/>
     </dependencies>
     <settings>
-        <personal>OCA\Video_converter\Settings\PresetSettings<\personal>
+        <personal>OCA\Video_converter\Settings\PresetSettings</personal>
         <personal-section>OCA\Video_converter\Settings\PresetSettings</personal-section>
     </settings>
 </info>
