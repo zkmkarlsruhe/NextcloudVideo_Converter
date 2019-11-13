@@ -1,6 +1,7 @@
 <?php
 namespace OCA\Video_Converter\Settings;
 
+use OCP\AppFramework\Http\TemplateResponse;
 use OCP\IConfig;
 use OCP\Settings\ISettings;
 
