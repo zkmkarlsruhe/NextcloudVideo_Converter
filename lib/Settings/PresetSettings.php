@@ -6,11 +6,13 @@ use OCP\Settings\ISettings;
 
 class PresetSettings implements ISettings {
     private $config;
+    private $appName;
     private $userId;
 
-    public function __construct(IConfig $config, $userId)
+    public function __construct(IConfig $config, $appName, $userId)
     {
         $this->$config = $config;
+        $this->appName = $appName;
         $this->userId = $userId;
     }
 
