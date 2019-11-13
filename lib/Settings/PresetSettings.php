@@ -16,6 +16,13 @@ class PresetSettings implements ISettings {
         $this->userId = $userId;
     }
 
+    /**
+     * @return TemplateResponse
+     */
+    public function getForm() {
+        return new TemplateResponse($this->appName, 'settings');
+    }
+
     public function getSection() {
         return 'additional';
     }
