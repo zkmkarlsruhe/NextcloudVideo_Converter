@@ -10,8 +10,7 @@ class PresetSettings implements ISettings {
     private $appName;
     private $userId;
 
-    public function __construct(IConfig $config, $appName, $userId)
-    {
+    public function __construct(IConfig $config, $appName, $userId) {
         $this->$config = $config;
         $this->appName = $appName;
         $this->userId = $userId;
