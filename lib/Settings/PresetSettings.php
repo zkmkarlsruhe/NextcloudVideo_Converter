@@ -25,7 +25,7 @@ class PresetSettings implements ISettings {
     }
 
     public function getSection() {
-        return 'additional';
+        return $this->appName;
     }
 
     /**
