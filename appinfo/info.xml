@@ -35,6 +35,6 @@
     </dependencies>
     <settings>
         <personal>OCA\Video_converter\Settings\PresetSettings</personal>
-        <personal-section>OCA\Video_converter\Settings\PresetSettings</personal-section>
+        <personal-section>OCA\Video_converter\Settings\ConverterSection</personal-section>
     </settings>
 </info>
