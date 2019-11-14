@@ -8,6 +8,9 @@
  * it's instantiated in there
  */
 return [
+    'resources' => [
+        'preset' => ['url' => '/presets'],
+    ],
     'routes' => [
         [
             'name' => 'conversion#convertHere',
