@@ -9,7 +9,7 @@
  */
 return [
     'routes' => [
-       [
+        [
             'name' => 'conversion#convertHere',
             'url'  => 'ajax/convertHere.php',
             'verb' => 'POST'
