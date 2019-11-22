@@ -29,7 +29,7 @@ class PresetController implements Controller {
 	/**
 	* @NoAdminRequired
 	*/
-	public function get() {
+	public function get($id) {
 
 	}
 
@@ -43,14 +43,14 @@ class PresetController implements Controller {
 	/**
 	* @NoAdminRequired
 	*/
-	public function update() {
-
+	public function update($id) {
+		
 	}
 
 	/**
 	* @NoAdminRequired
 	*/
-	public function remove() {
+	public function remove($id) {
 
 	}
 }
