@@ -7,50 +7,50 @@ use OCP\AppFramework\Http\JSONResponse;
 use OCP\AppFramework\Controller;
 
 class PresetController implements Controller {
-    private $config;
-    private $userId;
+	private $config;
+	private $userId;
 
-    /**
+	/**
 	* @NoAdminRequired
 	*/
-    public function __construct(string $appName, IRequest $request, IConfig $config, string $userId) {
-        parent::__construct($appName, $request);
-        $this->config = $config;
-        $this->userId = $userId;
-    }
+	public function __construct(string $appName, IRequest $request, IConfig $config, string $userId) {
+		parent::__construct($appName, $request);
+		$this->config = $config;
+		$this->userId = $userId;
+	}
 
-    /**
+	/**
 	* @NoAdminRequired
-    */
-    public function index() {
+	*/
+	public function index() {
 
-    }
+	}
 
-    /**
+	/**
 	* @NoAdminRequired
-    */
-    public function show() {
+	*/
+	public function show() {
 
-    }
+	}
 
-    /**
+	/**
 	* @NoAdminRequired
-    */
-    public function create() {
+	*/
+	public function create() {
 
-    }
+	}
 
-    /**
+	/**
 	* @NoAdminRequired
-    */
-    public function update() {
+	*/
+	public function update() {
 
-    }
+	}
 
-    /**
+	/**
 	* @NoAdminRequired
-    */
-    public function destroy() {
+	*/
+	public function destroy() {
 
-    }
+	}
 }

@@ -6,32 +6,32 @@ use OCP\IConfig;
 use OCP\Settings\ISettings;
 
 class PresetSettings implements ISettings {
-    private $config;
-    private $appName;
-    private $userId;
+	private $config;
+	private $appName;
+	private $userId;
 
-    public function __construct(IConfig $config, $appName, $userId) {
-        $this->$config = $config;
-        $this->appName = $appName;
-        $this->userId = $userId;
-    }
+	public function __construct(IConfig $config, $appName, $userId) {
+		$this->$config = $config;
+		$this->appName = $appName;
+		$this->userId = $userId;
+	}
 
-    /**
-     * @return TemplateResponse
-     */
-    public function getForm() {
-        return new TemplateResponse($this->appName, 'settings');
-    }
+	/**
+	 * @return TemplateResponse
+	 */
+	public function getForm() {
+		return new TemplateResponse($this->appName, 'settings');
+	}
 
-    public function getSection() {
-        return $this->appName;
-    }
+	public function getSection() {
+		return $this->appName;
+	}
 
-    /**
-     * Place at the bottom of the settings tab.
-     * @return int
-     */
-    public function getPriority() {
-        return 100;
-    }
+	/**
+	 * Place at the bottom of the settings tab.
+	 * @return int
+	 */
+	public function getPriority() {
+		return 100;
+	}
 }
