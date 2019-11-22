@@ -29,7 +29,7 @@ class PresetController implements Controller {
 	/**
 	* @NoAdminRequired
 	*/
-	public function show() {
+	public function get() {
 
 	}
 
@@ -50,7 +50,7 @@ class PresetController implements Controller {
 	/**
 	* @NoAdminRequired
 	*/
-	public function destroy() {
+	public function remove() {
 
 	}
 }
