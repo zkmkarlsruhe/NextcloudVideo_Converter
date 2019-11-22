@@ -1,10 +1,10 @@
 <?php
 return [
-    'routes' => [
-        [
-            'name' => 'conversion#convertHere',
-            'url'  => 'ajax/convertHere.php',
-            'verb' => 'POST'
+	'routes' => [
+		[
+			'name' => 'conversion#convertHere',
+			'url'  => 'ajax/convertHere.php',
+			'verb' => 'POST'
 		],
 		[
 			'name' => 'preset#index',
@@ -31,5 +31,5 @@ return [
 			'url'  => "/preset/{id}",
 			'verb' => 'DELETE'
 		],
-    ],
+	],
 ];
