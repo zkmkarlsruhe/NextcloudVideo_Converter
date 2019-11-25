@@ -6,33 +6,34 @@ use OCP\IConfig;
 class PresetStorageService {
 	private $appName;
 	private $config;
-	
-	public function __construct(string $appName, IConfig $config) {
+
+	public function __construct(string $appName, IConfig $config, string $userId) {
 		$this->appName = $appName;
 		$this->config = $config;
+		$this->userId = $userId;
 	}
 
-	public function init(string $userId) {
-
-	}
-
-	public function get(string $userId, int $presetId) {
+	public function init() {
 
 	}
 
-	public function set(string $userId, int $presetId, string $value) {
+	public function get(int $presetId) {
 
 	}
 
-	public function append(string $userId, string $value): int {
+	public function set(int $presetId, string $value) {
 
 	}
 
-	public function remove(string $userId, int $presetId) {
+	public function append(string $value): int {
 
 	}
 
-	public function reset(string $userId) {
+	public function remove(int $presetId) {
+
+	}
+
+	public function reset() {
 		
 	}
 
