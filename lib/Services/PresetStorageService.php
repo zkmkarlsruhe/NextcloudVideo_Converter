@@ -24,8 +24,8 @@ class PresetStorageService {
 
 	}
 
-	public function append(string $userId, string $value) {
-		
+	public function append(string $userId, string $value): int {
+
 	}
 
 	public function remove(string $userId, int $presetId) {
