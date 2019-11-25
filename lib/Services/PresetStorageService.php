@@ -37,8 +37,8 @@ class PresetStorageService {
 		
 	}
 
-	private function configExists(string $userId): bool {
-		if ($this->config->getUserValue($userId, $this->appName, 'config') == '') {
+	private function configExists(): bool {
+		if ($this->config->getUserValue($this->$userId, $this->appName, 'config') == '') {
 			return false;
 		}
 
