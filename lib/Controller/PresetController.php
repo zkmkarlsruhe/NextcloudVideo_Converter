@@ -6,16 +6,18 @@ use OCP\IConfig;
 use OCP\AppFramework\Http\JSONResponse;
 use OCP\AppFramework\Controller;
 
+use OCA\Video_Converter\Services\PresetStorageService;
+
 class PresetController implements Controller {
-	private $config;
+	private $storage;
 	private $userId;
 
 	/**
 	* @NoAdminRequired
 	*/
-	public function __construct(string $appName, IRequest $request, IConfig $config, string $userId) {
+	public function __construct(string $appName, IRequest $request, PresetStorageService $storage, string $userId) {
 		parent::__construct($appName, $request);
-		$this->config = $config;
+		$this->storage = $storage;
 		$this->userId = $userId;
 	}
 
