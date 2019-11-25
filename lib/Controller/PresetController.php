@@ -8,7 +8,7 @@ use OCP\AppFramework\Controller;
 
 use OCA\Video_Converter\Services\PresetStorageService;
 
-class PresetController implements Controller {
+class PresetController extends Controller {
 	private $storage;
 	private $userId;
 
