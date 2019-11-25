@@ -60,7 +60,7 @@ class PresetStorageService {
 	}
 
 	public function reset() {
-		
+		$this->init();
 	}
 
 	/*
