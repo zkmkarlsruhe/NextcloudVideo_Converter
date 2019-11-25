@@ -12,23 +12,23 @@ class PresetStorageService {
 		$this->config = $config;
 	}
 
-	public function init() {
+	public function init(string $userId) {
 
 	}
 
-	public function get() {
+	public function get(string $userId, int $presetId) {
 
 	}
 
-	public function set() {
+	public function set(string $userId, int $presetId, string $value) {
 
 	}
 
-	public function remove() {
+	public function remove(string $userId, int $presetId) {
 
 	}
 
-	public function reset() {
+	public function reset(string $userId) {
 		
 	}
 
