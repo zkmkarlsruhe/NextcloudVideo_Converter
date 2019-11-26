@@ -20,7 +20,7 @@ class PresetStorageService {
 
 
 		if (!configExists()) {
-			init();
+			initPresets();
 		} else {
 			$presetJSON = $this->config->getUserValue($this->userId, $this->appName, $this->configKey);
 			$error = $this->loadPresets($presetJSON);
@@ -34,33 +34,33 @@ class PresetStorageService {
 					'JSON' => $presetJSON
 				));
 
-				$this->reset();
+				$this->resetPresets();
 			}
 		}
 	}
 
-	public function init() {
+	public function initPresets() {
 
 	}
 
-	public function get(int $presetId) {
+	public function getPresets(int $presetId) {
 
 	}
 
-	public function set(int $presetId, string $value) {
+	public function setPreset(int $presetId, string $value) {
 
 	}
 
-	public function append(string $value): int {
+	public function appendPreset(string $value): int {
 
 	}
 
-	public function remove(int $presetId) {
+	public function removePreset(int $presetId) {
 
 	}
 
-	public function reset() {
-		$this->init();
+	public function resetPresets() {
+		$this->initPresets();
 	}
 
 	/*
