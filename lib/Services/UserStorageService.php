@@ -76,9 +76,9 @@ class UserStorageService {
 	}
 
 	/*
-	 * @Throws LengthException 
+	 * @throws LengthException 
 	 */
-	public function removeExtension(string $filename) {
+	public function removeExtension(string $filename): string {
 		$length = strlen($filename);
 		$extensionLength = strlen(self::extension);
 
@@ -87,5 +87,46 @@ class UserStorageService {
 		}
 
 		return substr($filename, 0, -$extensionLength);
+	}
+
+	public function getPresetIds() {
+		$files = $this->userFolder->getDirectoryListing();
+
+		$ids = [];
+		foreach ($files as $filename) {
+			try {
+				$id = (int)$this->removeExtension($filename);
+
+				if (!$this->isInteger($id)) {
+					throw new InvalidArgumentException("Non-ID file in appData-folder");
+				}
+
+				array_push($ids, (int)$id);
+			} catch (LengthException $e) {
+				$this->logger->logException($e, [
+					'app' => $this->appName,
+					'message' => 'Invalid filename for preset given'
+				]);
+			} catch (InvalidArgumentException $e) {
+				$this->logger->logException($e, ['app' => $this->appName]);
+			}
+		}
+
+		return $ids;
+	}
+
+	/*
+	 * Checks if the string is a valid integer in the integer range
+	 * (which is surprisingly hard in php)
+	 * @returns true if it is a valid int > 0, < max int
+	 */
+	public function isInteger(string $number): bool {
+		$onlyDigit = ctype_digit($number);
+		if (!$onlyDigit) {
+			return false;
+		}
+
+		$id = (int)$number;
+		return ($id < PHP_INT_MAX);
 	}
 }
