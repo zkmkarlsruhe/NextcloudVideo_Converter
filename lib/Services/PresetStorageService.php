@@ -1,41 +1,29 @@
 <?php
 namespace OCA\Video_Converter\Services;
 
-use OCP\IConfig;
 use OCP\ILogger;
+
+use OCA\Video_Converter\Services\UserStorageService;
+
 
 class PresetStorageService {
 	private $appName;
-	private $config;
 	private $logger;
+	private $storage;
 	private $presets;
 
-	private const configKey = 'config';
-
-	public function __construct(string $appName, IConfig $config, ILogger $logger, string $userId) {
+	public function __construct(string $appName, ILogger $logger, UserStorageService $storage, string $userId) {
 		$this->appName = $appName;
-		$this->config = $config;
 		$this->logger = $logger;
+		$this->storage = $storage;
 		$this->userId = $userId;
 
-
-		if (!configExists()) {
+		//TODO: Rewrite with new storage-backend
+		$presetIds = sizeof($this->storage->getPresetIds());
+		if ($numPresets == 0) {
 			$this->initPresets();
 		} else {
-			$presetJSON = $this->config->getUserValue($this->userId, $this->appName, $this->configKey);
-			$error = $this->loadPresets($presetJSON);
 
-			if ($error != JSON_ERROR_NONE) {
-				$msg = json_last_error_msg();
-
-				$this->logger->error('Invalid JSON read from config', array(
-					'appName' => $this->appName,
-					'userId' => $this->userId,
-					'JSON' => $presetJSON
-				));
-
-				$this->resetPresets();
-			}
 		}
 	}
 
@@ -107,13 +95,5 @@ class PresetStorageService {
 		}
 
 		//TODO: Add Present-Element and assemble a list of them
-	}
-
-	private function configExists(): bool {
-		if ($this->config->getUserValue($this->$userId, $this->appName, $this->configKey) == '') {
-			return false;
-		}
-
-		return true;
 	}
 }
