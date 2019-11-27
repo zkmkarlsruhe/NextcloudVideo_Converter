@@ -60,7 +60,13 @@ class PresetStorageService {
 	}
 
 	public function removePreset(int $presetId) {
+		if (!array_key_exists($presetId, $this->presets)) {
+			return null;
+		}
 
+		$val = $this->presets[$presetId];
+		unset($this->presets[$presetId]);
+		return $val;
 	}
 
 	public function resetPresets() {
