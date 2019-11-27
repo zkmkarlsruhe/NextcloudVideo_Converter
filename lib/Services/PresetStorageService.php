@@ -66,7 +66,7 @@ class PresetStorageService {
 	}
 
 	private function idExists(int $id): bool {
-		return array_key_exists($id, $this->preset);
+		return in_array($id, $this->presetIds);
 	}
 
 	private function getNextPresetId() {
