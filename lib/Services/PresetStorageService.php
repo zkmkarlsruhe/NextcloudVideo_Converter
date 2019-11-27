@@ -44,7 +44,11 @@ class PresetStorageService {
 	}
 
 	public function getPresets(int $presetId) {
+		if (!array_key_exists($presetId, $this->presets)) {
+			return null;
+		}
 
+		return $this->presets[$presetId];
 	}
 
 	public function setPreset(int $presetId, string $value) {
