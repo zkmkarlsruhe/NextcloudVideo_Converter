@@ -32,11 +32,15 @@ class UserStorageService {
 		$this->userFolder = $folder;
 	}
 
-	public function fileExists(string $filename): bool {
+	public function fileExists(int $presetId): bool {
+		$filename = $this->addExtension($presetId);
+
 		return $this->userFolder->fileExists($filename);
 	}
 
-	public function getFileContent(string $filename) {
+	public function getFileContent(int $presetId) {
+		$filename = $this->addExtension($presetId);
+
 		if ($this->userFolder->fileExists($filename)) {
 			$file = $this->userFolder->getFile($filename);
 			return $file->getContent();
@@ -45,7 +49,9 @@ class UserStorageService {
 		return null;
 	}
 
-	public function setFileContent(string $filename, string $content) {
+	public function setFileContent(int $presetId, string $content) {
+		$filename = $this->addExtension($presetId);
+
 		$file = null;
 		if (!$this->userFolder->fileExists($filename)) {
 			$this->userFolder->newFile($filename);
@@ -56,7 +62,9 @@ class UserStorageService {
 		$file->putContent($content);
 	}
 
-	public function deleteFile(string $filename) {
+	public function deleteFile(int $presetId) {
+		$filename = $this->addExtension($presetId);
+
 		if ($this->userFolder->fileExists($filename)) {
 			$file = $this->userFolder->getFile($filename);
 			$file->delete();
@@ -64,7 +72,7 @@ class UserStorageService {
 	}
 	
 	public function addExtension(int $id): string {
-		$filename = $id . UserStorageService::extension;
+		$filename = $id . self::extension;
 	}
 
 	/*
@@ -72,10 +80,10 @@ class UserStorageService {
 	 */
 	public function removeExtension(string $filename) {
 		$length = strlen($filename);
-		$extensionLength = strlen(UserStorageService::extension);
+		$extensionLength = strlen(self::extension);
 
 		if ($length <= $extensionLength) {
-			throw new LengthException("String " . $filename . "has to be longer than Extension " . UserStorageService::extension);
+			throw new LengthException("String " . $filename . "has to be longer than Extension " . self::extension);
 		}
 
 		return substr($filename, 0, -$extensionLength);
