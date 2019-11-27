@@ -12,12 +12,11 @@ use OCP\Files\SimpleFS\ISimpleFolder;
 class UserStorageService {
 	private $appName;
 	private $userId;
-	private $appData;
+	private $userFolder;
 	private $logger;
 
 	public function __construct(string $appName, IAppData $appData, ILogger $logger, string $userId) {
 		$this->appName = $appName;
-		$this->appData = $appData;
 		$this->logger = $logger;
 		$this->userId = $userId;
 
@@ -27,5 +26,7 @@ class UserStorageService {
 		} catch (NotFoundException $e) {
 			$folder = $this->appData->newFolder($this->$userId);
 		}
+
+		$this->userFolder = $folder;
 	}
 }
