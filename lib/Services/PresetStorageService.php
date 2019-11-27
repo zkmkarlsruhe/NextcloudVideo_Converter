@@ -63,6 +63,25 @@ class PresetStorageService {
 		$this->initPresets();
 	}
 
+	private function getNextPresetId() {
+		if ($this->presets == null || sizeof($this->presets) == 0) {
+			return 0;
+		}
+
+		$presetIds = array_keys($this->presets);
+		sort($presetIds);
+
+		for ($i = 0; $i < sizeof($presetId); $i++) {
+			$elem = $presetIds[$i];
+
+			if ($elem != $i) {
+				return $i;
+			}
+		}
+
+		return 0;
+	}
+
 	/*
 	 * @returns JSON_ERROR-Code or 0 if successful
 	 */
