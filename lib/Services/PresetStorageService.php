@@ -70,15 +70,15 @@ class PresetStorageService {
 	}
 
 	private function getNextPresetId() {
-		if ($this->presets == null || sizeof($this->presets) == 0) {
+		if (sizeof($this->presetIds) == 0) {
 			return 0;
 		}
 
-		$ids = array_keys($this->presets);
+		$ids = $this->presetIds;
 		sort($ids);
 
 		for ($i = 0; $i < sizeof($ids); $i++) {
-			$elem = ids[$i];
+			$elem = $ids[$i];
 
 			if ($elem != $i) {
 				return $i;
