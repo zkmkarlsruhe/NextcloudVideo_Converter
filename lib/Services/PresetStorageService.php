@@ -30,15 +30,15 @@ class PresetStorageService {
 
 	}
 
-	public function getPresets(int $presetId) {
-		if (!$this->idExists($presetId)) {
+	public function getPresets(int $id) {
+		if (!$this->idExists($id)) {
 			return null;
 		}
 
-		return $this->presets[$presetId];
+		return $this->presets[$id];
 	}
 
-	public function setPreset(int $presetId, string $value) {
+	public function setPreset(int $id, string $value) {
 
 	}
 
@@ -46,13 +46,13 @@ class PresetStorageService {
 
 	}
 
-	public function removePreset(int $presetId) {
-		if (!$this->idExists($presetId)) {
+	public function removePreset(int $id) {
+		if (!$this->idExists($id)) {
 			return null;
 		}
 
-		$val = $this->presets[$presetId];
-		unset($this->presets[$presetId]);
+		$val = $this->presets[$id];
+		unset($this->presets[$id]);
 		return $val;
 	}
 
@@ -69,11 +69,11 @@ class PresetStorageService {
 			return 0;
 		}
 
-		$presetIds = array_keys($this->presets);
-		sort($presetIds);
+		$ids = array_keys($this->presets);
+		sort($ids);
 
-		for ($i = 0; $i < sizeof($presetId); $i++) {
-			$elem = $presetIds[$i];
+		for ($i = 0; $i < sizeof($ids); $i++) {
+			$elem = ids[$i];
 
 			if ($elem != $i) {
 				return $i;
