@@ -15,6 +15,8 @@ class UserStorageService {
 	private $userFolder;
 	private $logger;
 
+	private const extension = ".json";
+
 	public function __construct(string $appName, IAppData $appData, ILogger $logger, string $userId) {
 		$this->appName = $appName;
 		$this->logger = $logger;
@@ -59,5 +61,23 @@ class UserStorageService {
 			$file = $this->userFolder->getFile($filename);
 			$file->delete();
 		}
+	}
+	
+	public function addExtension(int $id): string {
+		$filename = $id . UserStorageService::extension;
+	}
+
+	/*
+	 * @Throws LengthException 
+	 */
+	public function removeExtension(string $filename) {
+		$length = strlen($filename);
+		$extensionLength = strlen(UserStorageService::extension);
+
+		if ($length <= $extensionLength) {
+			throw new LengthException("String " . $filename . "has to be longer than Extension " . UserStorageService::extension);
+		}
+
+		return substr($filename, 0, -$extensionLength);
 	}
 }
