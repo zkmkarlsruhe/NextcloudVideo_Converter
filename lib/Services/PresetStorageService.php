@@ -10,6 +10,7 @@ class PresetStorageService {
 	private $appName;
 	private $logger;
 	private $storage;
+	private $presetIds;
 	private $presets;
 
 	public function __construct(string $appName, ILogger $logger, UserStorageService $storage, string $userId) {
@@ -19,11 +20,9 @@ class PresetStorageService {
 		$this->userId = $userId;
 
 		//TODO: Rewrite with new storage-backend
-		$presetIds = sizeof($this->storage->getPresetIds());
-		if ($numPresets == 0) {
+		$this->presetIds = $this->storage->getPresetIds();
+		if (sizeof($numPresets) == 0) {
 			$this->initPresets();
-		} else {
-
 		}
 	}
 
