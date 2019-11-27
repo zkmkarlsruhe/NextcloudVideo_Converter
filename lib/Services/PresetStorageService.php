@@ -11,7 +11,6 @@ class PresetStorageService {
 	private $logger;
 	private $storage;
 	private $presetIds;
-	private $presets;
 
 	public function __construct(string $appName, ILogger $logger, UserStorageService $storage, string $userId) {
 		$this->appName = $appName;
@@ -20,6 +19,7 @@ class PresetStorageService {
 		$this->userId = $userId;
 
 		//TODO: Rewrite with new storage-backend
+		$this->queryIds();
 		$this->presetIds = $this->storage->getPresetIds();
 		if (sizeof($numPresets) == 0) {
 			$this->initPresets();
@@ -35,7 +35,7 @@ class PresetStorageService {
 			return null;
 		}
 
-		return $this->presets[$id];
+		return $this->storage->getFileContent($id);
 	}
 
 	public function setPreset(int $id, string $value) {
@@ -51,13 +51,18 @@ class PresetStorageService {
 			return null;
 		}
 
-		$val = $this->presets[$id];
-		unset($this->presets[$id]);
+		$val = $this->storage->getFileContent($id);
+		$this->storage->deleteFile($id);
+		$this->queryIds();
 		return $val;
 	}
 
 	public function resetPresets() {
 		$this->initPresets();
+	}
+
+	private function queryIds() {
+		$this->presetIds = $this->storage->getPresetIds();
 	}
 
 	private function idExists(int $id): bool {
