@@ -83,7 +83,7 @@ class UserStorageService {
 		$extensionLength = strlen(self::extension);
 
 		if ($length <= $extensionLength) {
-			throw new LengthException("String " . $filename . "has to be longer than Extension " . self::extension);
+			throw new LengthException("String ${filename} has to be longer than Extension " . self::extension);
 		}
 
 		return substr($filename, 0, -$extensionLength);
@@ -98,7 +98,7 @@ class UserStorageService {
 				$id = (int)$this->removeExtension($filename);
 
 				if (!$this->isInteger($id)) {
-					throw new InvalidArgumentException("Non-ID file in appData-folder");
+					throw new InvalidArgumentException('Non-ID file in appData-folder');
 				}
 
 				array_push($ids, (int)$id);
