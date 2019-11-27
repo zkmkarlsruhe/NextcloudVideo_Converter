@@ -44,7 +44,7 @@ class PresetStorageService {
 	}
 
 	public function getPresets(int $presetId) {
-		if (!array_key_exists($presetId, $this->presets)) {
+		if (!$this->idExists($presetId)) {
 			return null;
 		}
 
@@ -60,7 +60,7 @@ class PresetStorageService {
 	}
 
 	public function removePreset(int $presetId) {
-		if (!array_key_exists($presetId, $this->presets)) {
+		if (!$this->idExists($presetId)) {
 			return null;
 		}
 
@@ -71,6 +71,10 @@ class PresetStorageService {
 
 	public function resetPresets() {
 		$this->initPresets();
+	}
+
+	private function idExists(int $id): bool {
+		return array_key_exists($id, $this->preset);
 	}
 
 	private function getNextPresetId() {
