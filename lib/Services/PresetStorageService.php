@@ -20,7 +20,7 @@ class PresetStorageService {
 
 
 		if (!configExists()) {
-			initPresets();
+			$this->initPresets();
 		} else {
 			$presetJSON = $this->config->getUserValue($this->userId, $this->appName, $this->configKey);
 			$error = $this->loadPresets($presetJSON);
