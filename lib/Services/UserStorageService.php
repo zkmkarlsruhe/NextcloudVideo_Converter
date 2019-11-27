@@ -29,4 +29,35 @@ class UserStorageService {
 
 		$this->userFolder = $folder;
 	}
+
+	public function fileExists(string $filename): bool {
+		return $this->userFolder->fileExists($filename);
+	}
+
+	public function getFileContent(string $filename) {
+		if ($this->userFolder->fileExists($filename)) {
+			$file = $this->userFolder->getFile($filename);
+			return $file->getContent();
+		}
+
+		return null;
+	}
+
+	public function setFileContent(string $filename, string $content) {
+		$file = null;
+		if (!$this->userFolder->fileExists($filename)) {
+			$this->userFolder->newFile($filename);
+		}
+
+		$file = $this->userFolder->getFile($filename);
+
+		$file->putContent($content);
+	}
+
+	public function deleteFile(string $filename) {
+		if ($this->userFolder->fileExists($filename)) {
+			$file = $this->userFolder->getFile($filename);
+			$file->delete();
+		}
+	}
 }
