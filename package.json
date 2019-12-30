@@ -1,0 +1,26 @@
+{
+  "name": "video_converter",
+  "version": "0.0.1",
+  "description": "\"A Video-Converter for Nextcloud\"",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/zkmkarlsruhe/NextcloudVideo_Converter.git"
+  },
+  "keywords": [
+    "video",
+    "ffmpeg",
+    "converter"
+  ],
+  "author": "GityUpNow",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/zkmkarlsruhe/NextcloudVideo_Converter/issues"
+  },
+  "homepage": "https://github.com/zkmkarlsruhe/NextcloudVideo_Converter#readme",
+  "dependencies": {
+    "@nextcloud/vue": "^1.2.3"
+  }
+}
