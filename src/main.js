@@ -1,6 +1,6 @@
 import Vue from 'vue'
 
-import App from './App'
+import Settings from './views/Settings.vue'
 
 Vue.prototype.t = window.t
 Vue.prototype.n = window.n
@@ -9,5 +9,5 @@ Vue.prototype.OCA = window.OCA
 
 export default new Vue({
 	el: '#vue-content',
-	render: h => h(App)
+	render: h => h(Settings)
 })
