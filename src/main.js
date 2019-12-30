@@ -8,6 +8,6 @@ Vue.prototype.OC = window.OC
 Vue.prototype.OCA = window.OCA
 
 export default new Vue({
-	el: '#vue-content',
+	el: '#vue_content',
 	render: h => h(Settings)
 })
