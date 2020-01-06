@@ -8,50 +8,76 @@ use OCP\AppFramework\Controller;
 
 use OCA\Video_Converter\Services\PresetStorageService;
 
+/**
+ * JSON-API to interact with the Presets
+ */
 class PresetController extends Controller {
+	/** @var PresetStorageService $storage Service that handles all the Presets. */
 	private $storage;
-	private $userId;
 
 	/**
-	* @NoAdminRequired
-	*/
-	public function __construct(string $appName, IRequest $request, PresetStorageService $storage, string $userId) {
+	 * @NoAdminRequired
+	 * 
+	 * @param string $appName
+	 * @param PresetStorageService $storage Preset-Controller
+	 */
+	public function __construct(string $appName, IRequest $request, PresetStorageService $storage) {
 		parent::__construct($appName, $request);
 		$this->storage = $storage;
-		$this->userId = $userId;
 	}
 
 	/**
-	* @NoAdminRequired
-	*/
+	 * List the Presets for the current user.
+	 * 
+	 * @NoAdminRequired
+	 * @return JSONResponse
+	 */
 	public function index() {
 
 	}
 
 	/**
-	* @NoAdminRequired
-	*/
-	public function get($id) {
+	 * Returns the Preset with the requested $id, or an error if there is no such Preset.
+	 * 
+	 * @NoAdminRequired
+	 * @param int $id Id of the requested Preset.
+	 * @return JSONResponse
+	 */
+	public function get(int $id) {
 
 	}
 
 	/**
-	* @NoAdminRequired
-	*/
+	 * Creates the requested preset, if valid and returns the id.
+	 * Otherwise a error is given.
+	 * 
+	 * @NoAdminRequired
+	 * @return JSONResponse
+	 */
 	public function create() {
 
 	}
 
 	/**
-	* @NoAdminRequired
-	*/
-	public function update($id) {
+	 * Updates the Preset with the $id to the newly given Preset, if valid.
+	 * Otherwise an error is returned.
+	 * 
+	 * @NoAdminRequired
+	 * @param int $id Id of the requested that has to be changed.
+	 * @return JSONResponse
+	 */
+	public function update(int $id) {
 		
 	}
 
 	/**
-	* @NoAdminRequired
-	*/
+	 * Deletes the requested Preset from the Database.
+	 * If there is no such Preset an error is returned.
+	 * 
+	 * @NoAdminRequired
+	 * @param int $id Id of the Preset to be deleted.
+	 * @return JSONResponse
+	 */
 	public function remove($id) {
 
 	}
