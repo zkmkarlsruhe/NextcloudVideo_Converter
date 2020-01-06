@@ -1,6 +1,9 @@
 <?php
 namespace OCA\Video_Converter\Entities;
 
+/**
+ * Preset for a Video-Conversion
+ */
 class Preset implements JsonSerializable {
 	/** 
 	 * All properties with either a primitive number or a string 
@@ -12,25 +15,25 @@ class Preset implements JsonSerializable {
 	 */
 	/** @var string */
 	protected $audioCodec;
-	/** @var integer */
+	/** @var int */
 	protected $bitrate;
-	/** @var integer */
+	/** @var int */
 	protected $audioChannels;
 
 	/** @var string */
 	protected $videoCodec;
 	/** @var float|string */
 	protected $framerate;
-	/** @var integer|string */
+	/** @var int|string */
 	protected $resolutionX;
-	/** @var integer|string */
+	/** @var int|string */
 	protected $resolutionY;
 
 	/** @var string */
 	protected $watermarkPath;
-	/** @var integer|string */
+	/** @var int|string */
 	protected $watermarkX;
-	/** @var integer|string */
+	/** @var int|string */
 	protected $watermarkY;
 	/** @var string */
 	protected $watermarkMode;
