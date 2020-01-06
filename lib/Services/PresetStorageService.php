@@ -64,6 +64,15 @@ class PresetStorageService {
 		return $this->storage->getFileContent($id);
 	}
 
+	/**
+	 * Returns an Array of all Preset-Ids.
+	 * 
+	 * @return Array 
+	 */
+	public function listPresets(): array {
+		return $this->presetIds;
+	}
+
 	/** 
 	 * Updates the Preset with a new value. 
 	 * The id must already exist.
